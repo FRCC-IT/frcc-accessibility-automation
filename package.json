@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@guidepup/guidepup": "^0.24.1",
+    "@guidepup/playwright": "^0.15.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  },
+  "scripts": {}
+}
