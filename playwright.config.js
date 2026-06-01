@@ -1,7 +1,7 @@
-import { screenReaderConfig } from "@guidepup/playwright";
-import { devices, PlaywrightTestConfig } from "@playwright/test";
+const { screenReaderConfig } = require("@guidepup/playwright");
+const { devices } = require("@playwright/test");
 
-const config: PlaywrightTestConfig = {
+const config = {
   ...screenReaderConfig,
   reportSlowTests: null,
   timeout: 3 * 60 * 1000,
@@ -14,4 +14,4 @@ const config: PlaywrightTestConfig = {
   ],
 };
 
-export default config;
+module.exports = config;
