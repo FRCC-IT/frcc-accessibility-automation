@@ -9,17 +9,7 @@ const config = {
   projects: [
     {
       name: "webkit",
-      use: {
-        ...devices["Desktop Safari"],
-        headless: false,
-        launchOptions: {
-          args: [
-            '--start-maximized',     // Works primarily on Windows/Linux
-            '--window-position=0,0', // Positions browser at the top-left coordinate of macOS
-            '--window-size=1920,1080' // Manually specifies the boundary width and height
-          ]
-        },
-      },
+      use: {...devices["Desktop Safari"], headless: false},
     },
   ],
 };

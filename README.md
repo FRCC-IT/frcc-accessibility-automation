@@ -88,3 +88,11 @@ The relevant Guidepup documentation is:
 
 - The current test expects interactive VoiceOver support and is therefore run with `headless: false`.
 - Add `npm` scripts to `package.json` if you want shortcuts such as `npm test` or `npm run test:webkit`.
+
+
+TODO:
+- Add NVDA tests
+- Add mobile
+- LightHouse integration
+- Screen recording integration
+- 
