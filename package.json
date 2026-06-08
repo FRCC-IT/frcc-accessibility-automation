@@ -5,5 +5,10 @@
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.1"
   },
-  "scripts": {}
+  "scripts": {
+    "test": "npx playwright test",
+    "test:voiceover": "npx playwright test --project=webkit \"tests/.*\\.voiceover\\.spec\\.js\"",
+    "test:nvda": "npx playwright test --project=windows \"tests/.*\\.nvda\\.spec\\.js\"",
+    "test:sr": "npx playwright test"
+  }
 }
