@@ -11,7 +11,7 @@ The current setup is focused on macOS VoiceOver via `@guidepup/playwright`.
 
 - `package.json` with Guidepup and Playwright dependencies
 - `playwright.config.js` configured with `screenReaderConfig`
-- `tests/example.spec.js` showing a VoiceOver-driven accessibility test
+- scoped screen reader test files in `tests/navigation` and `tests/search`
 
 ## Prerequisites
 
@@ -34,6 +34,18 @@ Run the full Playwright test suite:
 npx playwright test
 ```
 
+Run VoiceOver tests on macOS:
+
+```bash
+npm run test:voiceover
+```
+
+Run NVDA tests on Windows:
+
+```bash
+npm run test:nvda
+```
+
 Run the configured WebKit project explicitly:
 
 ```bash
@@ -47,8 +59,8 @@ The repository uses `@guidepup/playwright` to enable screen reader testing.
 Key setup:
 
 - `playwright.config.js` imports `screenReaderConfig` from `@guidepup/playwright`
-- A `webkit` project is configured with `Desktop Safari` and `headless: false`
-- This lets VoiceOver run interactively during tests
+- `webkit` and `windows` projects are configured for macOS VoiceOver and Windows screen reader runs
+- This lets tests target VoiceOver on macOS and NVDA-style workflows on Windows
 
 ## Example test
 
@@ -63,16 +75,16 @@ The sample test in `tests/example.spec.js` demonstrates:
 
 ## Writing new Guidepup tests
 
-Use the pattern in `tests/example.spec.js`:
+Use the naming pattern: `tests/<feature>.<voiceover|nvda>.spec.js`.
 
-1. Import `voiceOverTest` from `@guidepup/playwright`
+1. Import the appropriate test fixture from `@guidepup/playwright`, such as `voiceOverTest` or `nvdaTest`
 2. Use Playwright `page` to navigate and locate elements
-3. Use VoiceOver methods such as:
-   - `voiceOver.interact()`
-   - `voiceOver.navigateToWebContent()`
-   - `voiceOver.perform(...)`
-   - `voiceOver.itemText()`
-   - `voiceOver.spokenPhraseLog()`
+3. Use screen reader methods such as:
+   - `voiceOver.interact()` or `nvda.interact()`
+   - `voiceOver.navigateToWebContent()` or `nvda.navigateToWebContent()`
+   - `voiceOver.perform(...)` or `nvda.perform(...)`
+   - `voiceOver.itemText()` or `nvda.itemText()`
+   - `voiceOver.spokenPhraseLog()` or `nvda.spokenPhraseLog()`
 4. Assert accessibility behavior using Playwright `expect`
 
 ## Guidepup API

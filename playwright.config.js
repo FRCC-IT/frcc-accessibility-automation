@@ -9,7 +9,11 @@ const config = {
   projects: [
     {
       name: "webkit",
-      use: {...devices["Desktop Safari"], headless: false},
+      use: { ...devices["Desktop Safari"], headless: false },
+    },
+    {
+      name: "windows",
+      use: { ...devices["Desktop Edge"], headless: false },
     },
   ],
 };
