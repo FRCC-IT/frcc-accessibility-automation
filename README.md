@@ -103,8 +103,6 @@ The relevant Guidepup documentation is:
 
 
 TODO:
-- Add NVDA tests
 - Add mobile
 - LightHouse integration
 - Screen recording integration
-- 
